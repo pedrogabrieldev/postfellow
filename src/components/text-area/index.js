@@ -1,0 +1,25 @@
+import styled from 'styled-components'
+
+const StyledTextArea = styled.textarea.attrs({ placeholder: 'Mensagem' })`
+  width: 100%;
+  height: 80px;
+  margin-top: 8px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #494949;
+  color: #ffffff;
+  resize: none;
+
+  &::placeholder {
+    color: #9f9f9f;
+  }
+
+  &:focus {
+    outline: 1px solid #71bb00;
+  }
+`
+
+export const TextArea = () => {
+  return <StyledTextArea />
+}
