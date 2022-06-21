@@ -15,6 +15,10 @@ const StyledTextInput = styled.input.attrs({
   &::placeholder {
     color: #9f9f9f;
   }
+
+  &:focus {
+    outline: 1px solid #71bb00;
+  }
 `
 
 export const TextInput = () => {
