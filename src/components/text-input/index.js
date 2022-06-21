@@ -11,6 +11,11 @@ const StyledTextInput = styled.input.attrs({
   border-radius: 8px;
   background-color: #494949;
   color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.29;
 
   &::placeholder {
     color: #9f9f9f;
