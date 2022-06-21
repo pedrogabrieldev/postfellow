@@ -4,7 +4,7 @@ const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   width: 100vw;
-  height: 93px;
+  height: ${(props) => props.theme.sizes.headerHeight};
   background-color: #2b2b2b;
   color: #71bb00;
   font-size: 36px;
