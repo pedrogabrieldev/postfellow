@@ -6,7 +6,6 @@ const StyledMainContainer = styled.main`
   max-width: 516px;
   display: flex;
   flex-direction: column;
-  background-color: ${(props) => props.theme.colors.primary};
 `
 
 export const MainContainer = ({ children }) => {
