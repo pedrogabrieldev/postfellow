@@ -1,9 +1,9 @@
-import { Header } from './header'
-import { MainContainer } from './main-container'
-import { FormContainer } from './form-container'
-import { NewPostForm } from './new-post-form'
-import { TextInput } from './text-input'
-import { TextArea } from './text-area'
+import { Header } from './Header'
+import { MainContainer } from './MainContainer'
+import { FormContainer } from './FormContainer'
+import { NewPostForm } from './NewPostForm'
+import { TextInput } from './TextInput'
+import { TextArea } from './TextArea'
 
 export {
   Header,

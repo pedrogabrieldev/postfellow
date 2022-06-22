@@ -1,4 +1,4 @@
-import { FormContainer, TextInput, TextArea } from '../../components'
+import { FormContainer, TextInput, TextArea } from '../components'
 
 export const NewPostForm = () => {
   return (
