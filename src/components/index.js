@@ -4,6 +4,9 @@ import { FormContainer } from './FormContainer'
 import { NewPostForm } from './NewPostForm'
 import { TextInput } from './TextInput'
 import { TextArea } from './TextArea'
+import { Buttons } from './Buttons'
+import { ButtonPublish } from './ButtonPublish'
+import { ButtonDiscard } from './ButtonDiscard'
 
 export {
   Header,
@@ -12,4 +15,7 @@ export {
   FormContainer,
   TextInput,
   TextArea,
+  Buttons,
+  ButtonPublish,
+  ButtonDiscard,
 }
