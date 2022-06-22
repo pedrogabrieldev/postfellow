@@ -6,7 +6,7 @@ const StyledHeader = styled.header`
   width: 100vw;
   height: ${(props) => props.theme.sizes.headerHeight};
   background-color: #2b2b2b;
-  color: #71bb00;
+  color: ${(props) => props.theme.colors.green};
   font-size: 36px;
   font-weight: 700;
   border-bottom: 1px solid #232323;
