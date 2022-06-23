@@ -4,9 +4,8 @@ import { ButtonPublish, ButtonDiscard } from './'
 const ButtonsContainer = styled.div`
   margin-top: 32px;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
   gap: 24px;
+  align-self: flex-end;
 `
 
 export const Buttons = () => {
