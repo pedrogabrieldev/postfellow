@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Header, MainContainer, NewPostForm } from '../components'
+import { Header, MainContainer, NewPostForm, Feed } from '../components'
 
 export default function Home() {
   return (
@@ -12,6 +12,7 @@ export default function Home() {
 
       <MainContainer>
         <NewPostForm />
+        <Feed />
       </MainContainer>
     </>
   )
