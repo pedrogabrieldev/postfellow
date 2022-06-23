@@ -6,6 +6,7 @@ const StyledTextInput = styled.input.attrs({
 })`
   width: 100%;
   height: 40px;
+  margin-top: 16px;
   padding: 12px 16px;
   border: none;
   border-radius: 8px;
