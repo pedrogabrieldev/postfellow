@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const StyledTextArea = styled.textarea.attrs({ placeholder: 'Mensagem' })`
+const StyledTextArea = styled.textarea`
   width: 100%;
   height: 80px;
   margin-top: 8px;
@@ -25,6 +25,13 @@ const StyledTextArea = styled.textarea.attrs({ placeholder: 'Mensagem' })`
   }
 `
 
-export const TextArea = () => {
-  return <StyledTextArea />
+export const TextArea = (props) => {
+  return (
+    <StyledTextArea
+      placeholder="Mensagem"
+      spellCheck="false"
+      value={props.message}
+      onChange={props.handleChange}
+    />
+  )
 }

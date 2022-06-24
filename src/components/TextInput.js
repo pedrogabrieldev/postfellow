@@ -1,9 +1,6 @@
 import styled from 'styled-components'
 
-const StyledTextInput = styled.input.attrs({
-  type: 'text',
-  placeholder: 'Digite seu nome',
-})`
+const StyledTextInput = styled.input`
   width: 100%;
   height: 40px;
   margin-top: 16px;
@@ -27,6 +24,14 @@ const StyledTextInput = styled.input.attrs({
   }
 `
 
-export const TextInput = () => {
-  return <StyledTextInput />
+export const TextInput = (props) => {
+  return (
+    <StyledTextInput
+      type="text"
+      placeholder="Digite seu nome"
+      spellCheck="false"
+      value={props.name}
+      onChange={props.handleChange}
+    />
+  )
 }

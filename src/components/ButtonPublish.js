@@ -11,6 +11,6 @@ const StyledButton = styled.button`
   cursor: pointer;
 `
 
-export const ButtonPublish = () => {
-  return <StyledButton>Publicar</StyledButton>
+export const ButtonPublish = (props) => {
+  return <StyledButton type="submit">Publicar</StyledButton>
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 import { Avatar, AvatarSelector, TextInput, TextArea, Buttons } from './'
 
@@ -38,8 +39,26 @@ const TrashButton = styled.button`
 
 export const NewPostForm = () => {
   const avatar = true
+  const [name, setName] = useState('')
+  const [message, setMessage] = useState('')
+
+  console.log(name, message)
+
+  function handleChangeName(event) {
+    setName(event.target.value)
+  }
+
+  function handleChangeMessage(event) {
+    setMessage(event.target.value)
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    console.log('submited')
+  }
+
   return (
-    <FormContainer>
+    <FormContainer onSubmit={handleSubmit}>
       {avatar ? (
         <Container>
           <AvatarDiv>
@@ -52,8 +71,8 @@ export const NewPostForm = () => {
       ) : (
         <AvatarSelector />
       )}
-      <TextInput />
-      <TextArea />
+      <TextInput name={name} handleChange={handleChangeName} />
+      <TextArea message={message} handleChange={handleChangeMessage} />
       <Buttons />
     </FormContainer>
   )
