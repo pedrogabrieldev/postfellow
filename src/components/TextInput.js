@@ -30,6 +30,7 @@ export const TextInput = (props) => {
       type="text"
       placeholder="Digite seu nome"
       spellCheck="false"
+      required
       value={props.name}
       onChange={props.handleChange}
     />

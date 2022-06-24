@@ -30,6 +30,7 @@ export const TextArea = (props) => {
     <StyledTextArea
       placeholder="Mensagem"
       spellCheck="false"
+      required
       value={props.message}
       onChange={props.handleChange}
     />
