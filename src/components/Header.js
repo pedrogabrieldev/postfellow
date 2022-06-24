@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const StyledHeader = styled.header`
   position: fixed;
   top: 0;
-  width: 100vw;
+  width: 100%;
   height: ${(props) => props.theme.sizes.headerHeight};
   background-color: #2b2b2b;
   color: ${(props) => props.theme.colors.green};
