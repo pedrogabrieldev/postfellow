@@ -60,7 +60,7 @@ export const NewPostForm = (props) => {
     setMessage(event.target.value)
   }
 
-  function handleSubmit(event) {
+  function addPost(event) {
     event.preventDefault()
 
     if (!name || !message) {
@@ -77,7 +77,7 @@ export const NewPostForm = (props) => {
   }
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
+    <FormContainer onSubmit={addPost}>
       {avatar ? (
         <Container>
           <AvatarDiv>
