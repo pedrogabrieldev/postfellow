@@ -26,6 +26,8 @@ export const Feed = (props) => {
               avatar={post.avatar}
               name={post.name}
               message={post.message}
+              index={index}
+              deletePost={props.deletePost}
             />
           )
         })}

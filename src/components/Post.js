@@ -55,6 +55,10 @@ const DeleteButton = styled.button`
 `
 
 export const Post = (props) => {
+  function deletePost() {
+    props.deletePost(props.index)
+  }
+
   return (
     <PostContainer>
       <AvatarDiv>
@@ -66,7 +70,7 @@ export const Post = (props) => {
         <StyledSentBy>Enviado por</StyledSentBy>
         <StyledAuthor>{props.name}</StyledAuthor>
       </MessageDiv>
-      <DeleteButton>
+      <DeleteButton onClick={deletePost}>
         <XCircle size={24} color="#ff4600" weight="light" />
       </DeleteButton>
     </PostContainer>

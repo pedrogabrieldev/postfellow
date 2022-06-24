@@ -9,6 +9,11 @@ export default function Home() {
     setPosts([...posts, post])
   }
 
+  function handleDeletePost(index) {
+    setPosts(posts.filter((post) => posts.indexOf(post) !== index))
+    console.log('deleting post', index)
+  }
+
   return (
     <>
       <Head>
@@ -19,7 +24,7 @@ export default function Home() {
 
       <MainContainer>
         <NewPostForm addPost={handleAddPost} />
-        <Feed posts={posts} />
+        <Feed posts={posts} deletePost={handleDeletePost} />
       </MainContainer>
     </>
   )
