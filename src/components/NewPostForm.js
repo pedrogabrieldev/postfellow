@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import { Avatar, AvatarSelector, TextInput, TextArea, Buttons } from './'
-
 import { Trash } from 'phosphor-react'
-import Photo from '../../public/baby-yoda.png'
 
 const FormContainer = styled.form`
   padding: 24px;
@@ -40,11 +38,17 @@ const TrashButton = styled.button.attrs({
 `
 
 export const NewPostForm = () => {
-  const avatar = true
+  const [avatar, setAvatar] = useState('')
   const [name, setName] = useState('')
   const [message, setMessage] = useState('')
 
   console.log(name, message)
+
+  function handleChangeAvatar(event) {
+    if (event.target.files) {
+      setAvatar(URL.createObjectURL(event.target.files[0]))
+    }
+  }
 
   function handleChangeName(event) {
     setName(event.target.value)
@@ -64,14 +68,14 @@ export const NewPostForm = () => {
       {avatar ? (
         <Container>
           <AvatarDiv>
-            <Avatar avatar={Photo} />
+            <Avatar avatar={avatar} />
           </AvatarDiv>
           <TrashButton>
             <Trash size={24} color="#ff4600" weight="light" />
           </TrashButton>
         </Container>
       ) : (
-        <AvatarSelector />
+        <AvatarSelector handleChange={handleChangeAvatar} />
       )}
       <TextInput name={name} handleChange={handleChangeName} />
       <TextArea message={message} handleChange={handleChangeMessage} />

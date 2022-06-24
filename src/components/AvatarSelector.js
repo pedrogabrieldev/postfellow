@@ -22,10 +22,10 @@ const StyledFileInput = styled.input.attrs({
   display: none;
 `
 
-export const AvatarSelector = () => {
+export const AvatarSelector = (props) => {
   return (
     <StyledLabel>
-      <StyledFileInput />
+      <StyledFileInput onChange={props.handleChange} />
       <ImageSquare size={24} color="#ffffff" weight="light" />
     </StyledLabel>
   )
