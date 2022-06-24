@@ -15,25 +15,25 @@ const StyledSpan = styled.span`
 `
 
 export const Feed = (props) => {
+  const postsList = props.posts.map((post, index) => {
+    return (
+      <Post
+        key={index}
+        avatar={post.avatar}
+        name={post.name}
+        message={post.message}
+        index={index}
+        deletePost={props.deletePost}
+      />
+    )
+  })
+
   return (
     <>
       <StyledSpan>
         {props.posts.length ? 'Feed' : 'Nenhuma postagem'}
       </StyledSpan>
-      <FeedContainer>
-        {props.posts.map((post, index) => {
-          return (
-            <Post
-              key={index}
-              avatar={post.avatar}
-              name={post.name}
-              message={post.message}
-              index={index}
-              deletePost={props.deletePost}
-            />
-          )
-        })}
-      </FeedContainer>
+      <FeedContainer>{postsList.reverse()}</FeedContainer>
     </>
   )
 }
