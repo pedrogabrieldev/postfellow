@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { XCircle } from 'phosphor-react'
 import { Avatar } from '.'
-import Photo from '../../public/baby-yoda.png'
 
 const PostContainer = styled.div`
   display: flex;
@@ -28,6 +27,7 @@ const StyledParagraph = styled.p`
   font-size: 16px;
   line-height: 1.25;
   margin-bottom: 24px;
+  word-break: break-word;
 `
 
 const StyledSentBy = styled.span`
@@ -54,21 +54,17 @@ const DeleteButton = styled.button`
   cursor: pointer;
 `
 
-export const Post = () => {
+export const Post = (props) => {
   return (
     <PostContainer>
       <AvatarDiv>
-        <Avatar avatar={Photo} />
+        <Avatar avatar={props.avatar} />
       </AvatarDiv>
 
       <MessageDiv>
-        <StyledParagraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla mattis
-          ligula vel velit scelerisque iaculis. Nam mattis justo id orci
-          commodo, eu tempus purus cursus.
-        </StyledParagraph>
+        <StyledParagraph>{props.message}</StyledParagraph>
         <StyledSentBy>Enviado por</StyledSentBy>
-        <StyledAuthor>Baby Yoda</StyledAuthor>
+        <StyledAuthor>{props.name}</StyledAuthor>
       </MessageDiv>
       <DeleteButton>
         <XCircle size={24} color="#ff4600" weight="light" />

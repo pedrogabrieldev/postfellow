@@ -14,16 +14,21 @@ const StyledSpan = styled.span`
   font-size: 14px;
 `
 
-export const Feed = () => {
+export const Feed = (props) => {
   return (
     <>
       <StyledSpan>Feed</StyledSpan>
       <FeedContainer>
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+        {props.posts.map((post, index) => {
+          return (
+            <Post
+              key={index}
+              avatar={post.avatar}
+              name={post.name}
+              message={post.message}
+            />
+          )
+        })}
       </FeedContainer>
     </>
   )

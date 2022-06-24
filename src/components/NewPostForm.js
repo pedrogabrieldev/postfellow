@@ -37,12 +37,10 @@ const TrashButton = styled.button.attrs({
   cursor: pointer;
 `
 
-export const NewPostForm = () => {
+export const NewPostForm = (props) => {
   const [avatar, setAvatar] = useState('')
   const [name, setName] = useState('')
   const [message, setMessage] = useState('')
-
-  console.log(name, message)
 
   function handleChangeAvatar(event) {
     if (event.target.files) {
@@ -64,7 +62,7 @@ export const NewPostForm = () => {
 
   function handleSubmit(event) {
     event.preventDefault()
-    console.log('submited')
+    props.addPost({ avatar, name, message })
   }
 
   return (

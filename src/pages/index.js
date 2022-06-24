@@ -1,7 +1,14 @@
+import { useState } from 'react'
 import Head from 'next/head'
 import { Header, MainContainer, NewPostForm, Feed } from '../components'
 
 export default function Home() {
+  const [posts, setPosts] = useState([])
+
+  function handleAddPost(post) {
+    setPosts([...posts, post])
+  }
+
   return (
     <>
       <Head>
@@ -11,8 +18,8 @@ export default function Home() {
       <Header>postfellow</Header>
 
       <MainContainer>
-        <NewPostForm />
-        <Feed />
+        <NewPostForm addPost={handleAddPost} />
+        <Feed posts={posts} />
       </MainContainer>
     </>
   )
