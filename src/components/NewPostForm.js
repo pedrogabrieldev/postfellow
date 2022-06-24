@@ -50,6 +50,10 @@ export const NewPostForm = () => {
     }
   }
 
+  function handleDeleteAvatar() {
+    setAvatar('')
+  }
+
   function handleChangeName(event) {
     setName(event.target.value)
   }
@@ -70,7 +74,7 @@ export const NewPostForm = () => {
           <AvatarDiv>
             <Avatar avatar={avatar} />
           </AvatarDiv>
-          <TrashButton>
+          <TrashButton onClick={handleDeleteAvatar}>
             <Trash size={24} color="#ff4600" weight="light" />
           </TrashButton>
         </Container>
