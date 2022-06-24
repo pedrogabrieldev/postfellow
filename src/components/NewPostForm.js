@@ -63,6 +63,7 @@ export const NewPostForm = (props) => {
   function handleSubmit(event) {
     event.preventDefault()
     props.addPost({ avatar, name, message })
+    handleDiscardButton()
   }
 
   function handleDiscardButton() {
