@@ -17,7 +17,9 @@ const StyledSpan = styled.span`
 export const Feed = (props) => {
   return (
     <>
-      <StyledSpan>Feed</StyledSpan>
+      <StyledSpan>
+        {props.posts.length ? 'Feed' : 'Nenhuma postagem'}
+      </StyledSpan>
       <FeedContainer>
         {props.posts.map((post, index) => {
           return (
