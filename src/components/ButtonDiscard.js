@@ -12,6 +12,6 @@ const StyledButton = styled.button.attrs({
   cursor: pointer;
 `
 
-export const ButtonDiscard = () => {
-  return <StyledButton>Descartar</StyledButton>
+export const ButtonDiscard = (props) => {
+  return <StyledButton onClick={props.handleDiscard}>Descartar</StyledButton>
 }

@@ -8,10 +8,10 @@ const ButtonsContainer = styled.div`
   align-self: flex-end;
 `
 
-export const Buttons = () => {
+export const Buttons = (props) => {
   return (
     <ButtonsContainer>
-      <ButtonDiscard />
+      <ButtonDiscard handleDiscard={props.handleDiscard} />
       <ButtonPublish />
     </ButtonsContainer>
   )

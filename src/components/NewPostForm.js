@@ -65,6 +65,11 @@ export const NewPostForm = (props) => {
     props.addPost({ avatar, name, message })
   }
 
+  function handleDiscardButton() {
+    setName('')
+    setMessage('')
+  }
+
   return (
     <FormContainer onSubmit={handleSubmit}>
       {avatar ? (
@@ -81,7 +86,7 @@ export const NewPostForm = (props) => {
       )}
       <TextInput name={name} handleChange={handleChangeName} />
       <TextArea message={message} handleChange={handleChangeMessage} />
-      <Buttons />
+      <Buttons handleDiscard={handleDiscardButton} />
     </FormContainer>
   )
 }
