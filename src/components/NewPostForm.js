@@ -29,7 +29,9 @@ const AvatarDiv = styled.div`
   height: 88px;
 `
 
-const TrashButton = styled.button`
+const TrashButton = styled.button.attrs({
+  type: 'button',
+})`
   width: 24px;
   height: 24px;
   border: none;
