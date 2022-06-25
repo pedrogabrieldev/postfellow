@@ -1,7 +1,6 @@
 import { Header } from './Header'
 import { MainContainer } from './MainContainer'
 import { NewPostForm } from './NewPostForm'
-import { Buttons } from './Buttons'
 import { Avatar } from './Avatar'
 import { AvatarSelector } from './AvatarSelector'
 import { Feed } from './Feed'
@@ -13,7 +12,6 @@ export {
   NewPostForm,
   Avatar,
   AvatarSelector,
-  Buttons,
   Feed,
   Post,
 }
