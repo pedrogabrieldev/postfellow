@@ -11,7 +11,6 @@ export default function Home() {
 
   function handleDeletePost(index) {
     setPosts(posts.filter((post) => posts.indexOf(post) !== index))
-    console.log('deleting post', index)
   }
 
   return (
