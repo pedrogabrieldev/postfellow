@@ -1,8 +1,6 @@
 import { Header } from './Header'
 import { MainContainer } from './MainContainer'
 import { NewPostForm } from './NewPostForm'
-import { TextInput } from './TextInput'
-import { TextArea } from './TextArea'
 import { Buttons } from './Buttons'
 import { Avatar } from './Avatar'
 import { AvatarSelector } from './AvatarSelector'
@@ -15,8 +13,6 @@ export {
   NewPostForm,
   Avatar,
   AvatarSelector,
-  TextInput,
-  TextArea,
   Buttons,
   Feed,
   Post,

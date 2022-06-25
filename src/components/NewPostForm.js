@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styled, { useTheme } from 'styled-components'
-import { Avatar, AvatarSelector, TextInput, TextArea, Buttons } from './'
+import { Avatar, AvatarSelector, Buttons } from './'
 import { Trash } from 'phosphor-react'
 
 const FormContainer = styled.form`
@@ -35,6 +35,64 @@ const TrashButton = styled.button.attrs({
   border: none;
   background: none;
   cursor: pointer;
+`
+
+const TextInput = styled.input.attrs({
+  type: 'text',
+  placeholder: 'Digite seu nome',
+  spellCheck: false,
+  required: true,
+})`
+  width: 100%;
+  height: 40px;
+  margin-top: 16px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: ${(props) => props.theme.colors.gray5};
+  color: ${(props) => props.theme.colors.white};
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.29;
+
+  &::placeholder {
+    color: ${(props) => props.theme.colors.gray1};
+  }
+
+  &:focus {
+    outline: 1px solid ${(props) => props.theme.colors.green1};
+  }
+`
+
+const TextArea = styled.textarea.attrs({
+  placeholder: 'Mensagem',
+  spellCheck: false,
+  required: true,
+})`
+  width: 100%;
+  height: 80px;
+  margin-top: 8px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: ${(props) => props.theme.colors.gray5};
+  color: ${(props) => props.theme.colors.white};
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.29;
+  resize: none;
+
+  &::placeholder {
+    color: ${(props) => props.theme.colors.gray1};
+  }
+
+  &:focus {
+    outline: 1px solid ${(props) => props.theme.colors.green1};
+  }
 `
 
 export const NewPostForm = (props) => {
@@ -92,8 +150,8 @@ export const NewPostForm = (props) => {
       ) : (
         <AvatarSelector handleChange={handleChangeAvatar} />
       )}
-      <TextInput name={name} handleChange={handleChangeName} />
-      <TextArea message={message} handleChange={handleChangeMessage} />
+      <TextInput value={name} onChange={handleChangeName} />
+      <TextArea value={message} onChange={handleChangeMessage} />
       <Buttons handleDiscard={handleDiscardButton} />
     </FormContainer>
   )
