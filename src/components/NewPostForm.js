@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import { Avatar, AvatarSelector, TextInput, TextArea, Buttons } from './'
 import { Trash } from 'phosphor-react'
 
@@ -38,6 +38,8 @@ const TrashButton = styled.button.attrs({
 `
 
 export const NewPostForm = (props) => {
+  const theme = useTheme()
+
   const [avatar, setAvatar] = useState('')
   const [name, setName] = useState('')
   const [message, setMessage] = useState('')
@@ -84,7 +86,7 @@ export const NewPostForm = (props) => {
             <Avatar avatar={avatar} />
           </AvatarDiv>
           <TrashButton onClick={handleDeleteAvatar}>
-            <Trash size={24} color="#ff4600" weight="light" />
+            <Trash size={24} color={theme.colors.red} weight="light" />
           </TrashButton>
         </Container>
       ) : (

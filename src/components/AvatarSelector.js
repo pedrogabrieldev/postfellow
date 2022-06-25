@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import { ImageSquare } from 'phosphor-react'
 
 const StyledLabel = styled.label.attrs({
@@ -23,10 +23,12 @@ const StyledFileInput = styled.input.attrs({
 `
 
 export const AvatarSelector = (props) => {
+  const theme = useTheme()
+
   return (
     <StyledLabel>
       <StyledFileInput onChange={props.handleChange} />
-      <ImageSquare size={24} color="#ffffff" weight="light" />
+      <ImageSquare size={24} color={theme.colors.white} weight="light" />
     </StyledLabel>
   )
 }

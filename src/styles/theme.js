@@ -15,6 +15,7 @@ export const theme = {
     gray10: '#232323',
     green1: '#71bb00',
     green2: '#62a300',
+    red: '#ff4600',
   },
   sizes: {
     headerHeight: '93px',

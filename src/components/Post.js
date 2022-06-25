@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import { XCircle } from 'phosphor-react'
 import { Avatar } from '.'
 
@@ -55,6 +55,8 @@ const DeleteButton = styled.button`
 `
 
 export const Post = (props) => {
+  const theme = useTheme()
+
   function deletePost() {
     props.deletePost(props.index)
   }
@@ -71,7 +73,7 @@ export const Post = (props) => {
         <StyledAuthor>{props.name}</StyledAuthor>
       </MessageDiv>
       <DeleteButton onClick={deletePost}>
-        <XCircle size={24} color="#ff4600" weight="light" />
+        <XCircle size={24} color={theme.colors.red} weight="light" />
       </DeleteButton>
     </PostContainer>
   )
