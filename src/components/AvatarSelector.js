@@ -9,7 +9,7 @@ const StyledLabel = styled.label.attrs({
   align-items: center;
   width: 88px;
   height: 88px;
-  border: 1px solid #4b4b4b;
+  border: 1px solid ${(props) => props.theme.colors.gray4};
   border-radius: 100%;
   cursor: pointer;
 `

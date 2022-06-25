@@ -5,8 +5,8 @@ import { Trash } from 'phosphor-react'
 
 const FormContainer = styled.form`
   padding: 24px;
-  background-color: #313131;
-  border: 1px solid #3b3b3b;
+  background-color: ${(props) => props.theme.colors.gray8};
+  border: 1px solid ${(props) => props.theme.colors.gray6};
   border-radius: 3px;
   display: flex;
   flex-direction: column;

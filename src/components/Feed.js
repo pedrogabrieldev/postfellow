@@ -10,7 +10,7 @@ const FeedContainer = styled.div`
 const StyledSpan = styled.span`
   margin-top: 56px;
   margin-bottom: 8px;
-  color: #7a7a7a;
+  color: ${(props) => props.theme.colors.gray2};
   font-size: 14px;
 `
 

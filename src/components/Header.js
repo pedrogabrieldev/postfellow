@@ -5,11 +5,11 @@ const StyledHeader = styled.header`
   top: 0;
   width: 100%;
   height: ${(props) => props.theme.sizes.headerHeight};
-  background-color: #2b2b2b;
-  color: ${(props) => props.theme.colors.green};
+  background-color: ${(props) => props.theme.colors.gray9};
+  color: ${(props) => props.theme.colors.green1};
   font-size: 36px;
   font-weight: 700;
-  border-bottom: 1px solid #232323;
+  border-bottom: 1px solid ${(props) => props.theme.colors.gray10};
   display: flex;
   justify-content: center;
   align-items: center;
