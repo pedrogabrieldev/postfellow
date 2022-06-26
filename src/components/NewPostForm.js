@@ -41,6 +41,7 @@ const TextInput = styled.input.attrs({
   type: 'text',
   placeholder: 'Digite seu nome',
   spellCheck: false,
+  maxLength: 40,
   required: true,
 })`
   width: 100%;
@@ -69,6 +70,7 @@ const TextInput = styled.input.attrs({
 const TextArea = styled.textarea.attrs({
   placeholder: 'Mensagem',
   spellCheck: false,
+  maxLength: 280,
   required: true,
 })`
   width: 100%;
