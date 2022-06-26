@@ -5,7 +5,7 @@ import { Header, NewPostForm, Feed } from '../components'
 
 const MainContainer = styled.main`
   margin: ${(props) => props.theme.sizes.headerHeight} auto 0 auto;
-  padding: 40px 0 170px 0;
+  padding: 40px 8px 170px 8px;
   max-width: 516px;
   display: flex;
   flex-direction: column;
