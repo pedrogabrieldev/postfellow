@@ -27,7 +27,7 @@ export const AvatarSelector = (props) => {
 
   return (
     <StyledLabel>
-      <StyledFileInput onChange={props.handleChange} />
+      <StyledFileInput onChange={props.changeAvatar} />
       <ImageSquare size={24} color={theme.colors.white} weight="light" />
     </StyledLabel>
   )

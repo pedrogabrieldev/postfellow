@@ -5,11 +5,11 @@ import { Header, MainContainer, NewPostForm, Feed } from '../components'
 export default function Home() {
   const [posts, setPosts] = useState([])
 
-  function handleAddPost(post) {
+  function addPost(post) {
     setPosts([...posts, post])
   }
 
-  function handleDeletePost(index) {
+  function deletePost(index) {
     setPosts(posts.filter((post) => posts.indexOf(post) !== index))
   }
 
@@ -22,8 +22,8 @@ export default function Home() {
       <Header>postfellow</Header>
 
       <MainContainer>
-        <NewPostForm addPost={handleAddPost} />
-        <Feed posts={posts} deletePost={handleDeletePost} />
+        <NewPostForm addPost={addPost} />
+        <Feed posts={posts} deletePost={deletePost} />
       </MainContainer>
     </>
   )

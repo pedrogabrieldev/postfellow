@@ -142,21 +142,21 @@ export const NewPostForm = (props) => {
   const [name, setName] = useState('')
   const [message, setMessage] = useState('')
 
-  function handleChangeAvatar(event) {
+  function changeAvatar(event) {
     if (event.target.files) {
       setAvatar(URL.createObjectURL(event.target.files[0]))
     }
   }
 
-  function handleDeleteAvatar() {
+  function deleteAvatar() {
     setAvatar('')
   }
 
-  function handleChangeName(event) {
+  function changeName(event) {
     setName(event.target.value)
   }
 
-  function handleChangeMessage(event) {
+  function changeMessage(event) {
     setMessage(event.target.value)
   }
 
@@ -183,16 +183,16 @@ export const NewPostForm = (props) => {
           <AvatarDiv>
             <Avatar avatar={avatar} />
           </AvatarDiv>
-          <TrashButton onClick={handleDeleteAvatar}>
+          <TrashButton onClick={deleteAvatar}>
             <Trash size={24} color={theme.colors.red} weight="light" />
           </TrashButton>
         </Container>
       ) : (
-        <AvatarSelector handleChange={handleChangeAvatar} />
+        <AvatarSelector changeAvatar={changeAvatar} />
       )}
 
-      <TextInput value={name} onChange={handleChangeName} />
-      <TextArea value={message} onChange={handleChangeMessage} />
+      <TextInput value={name} onChange={changeName} />
+      <TextArea value={message} onChange={changeMessage} />
 
       <ButtonsContainer>
         <ButtonDiscard onClick={handleDiscardButton}>Descartar</ButtonDiscard>
