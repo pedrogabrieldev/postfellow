@@ -63,7 +63,7 @@ const TextInput = styled.input.attrs({
   }
 
   &:focus {
-    outline: 1px solid ${(props) => props.theme.colors.green1};
+    outline: 1px solid ${(props) => props.theme.colors.gray2};
   }
 `
 
@@ -93,7 +93,7 @@ const TextArea = styled.textarea.attrs({
   }
 
   &:focus {
-    outline: 1px solid ${(props) => props.theme.colors.green1};
+    outline: 1px solid ${(props) => props.theme.colors.gray2};
   }
 `
 
