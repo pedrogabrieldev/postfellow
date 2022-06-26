@@ -41,6 +41,7 @@ const StyledSentBy = styled.span`
 const StyledAuthor = styled.span`
   color: ${(props) => props.theme.colors.gray2};
   font-size: 14px;
+  word-break: break-word;
 `
 
 const DeleteButton = styled.button`
