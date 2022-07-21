@@ -141,7 +141,7 @@ export const NewPostForm = (props) => {
   const theme = useTheme()
 
   const [avatar, setAvatar] = useState('')
-  const [name, setName] = useState('')
+  const [author, setAuthor] = useState('')
   const [message, setMessage] = useState('')
 
   function changeAvatar(event) {
@@ -154,8 +154,8 @@ export const NewPostForm = (props) => {
     setAvatar('')
   }
 
-  function changeName(event) {
-    setName(event.target.value)
+  function changeAuthor(event) {
+    setAuthor(event.target.value)
   }
 
   function changeMessage(event) {
@@ -165,16 +165,16 @@ export const NewPostForm = (props) => {
   function addPost(event) {
     event.preventDefault()
 
-    if (!name || !message) {
+    if (!author || !message) {
       return
     }
 
-    props.addPost({ avatar, name, message })
+    props.addPost({ avatar, author, message })
     handleDiscardButton()
   }
 
   function handleDiscardButton() {
-    setName('')
+    setAuthor('')
     setMessage('')
   }
 
@@ -193,7 +193,7 @@ export const NewPostForm = (props) => {
         <AvatarSelector changeAvatar={changeAvatar} />
       )}
 
-      <TextInput value={name} onChange={changeName} />
+      <TextInput value={author} onChange={changeAuthor} />
       <TextArea value={message} onChange={changeMessage} />
 
       <ButtonsContainer>
