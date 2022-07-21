@@ -18,9 +18,10 @@ export const Feed = (props) => {
   const postsList = props.posts.map((post, index) => {
     return (
       <Post
-        key={index}
+        key={post._id}
+        _id={post._id}
         avatar={post.avatar}
-        name={post.name}
+        author={post.author}
         message={post.message}
         index={index}
         deletePost={props.deletePost}

@@ -59,7 +59,7 @@ export const Post = (props) => {
   const theme = useTheme()
 
   function deletePost() {
-    props.deletePost(props.index)
+    props.deletePost(props._id)
   }
 
   return (
@@ -71,7 +71,7 @@ export const Post = (props) => {
       <MessageDiv>
         <StyledParagraph>{props.message}</StyledParagraph>
         <StyledSentBy>Enviado por</StyledSentBy>
-        <StyledAuthor>{props.name}</StyledAuthor>
+        <StyledAuthor>{props.author}</StyledAuthor>
       </MessageDiv>
       <DeleteButton onClick={deletePost}>
         <XCircle size={24} color={theme.colors.red} weight="light" />

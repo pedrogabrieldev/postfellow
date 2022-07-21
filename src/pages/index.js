@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Head from 'next/head'
+import clientPromise from '../lib/mongodb'
 import styled from 'styled-components'
 import { Header, NewPostForm, Feed } from '../components'
 
@@ -11,15 +12,41 @@ const MainContainer = styled.main`
   flex-direction: column;
 `
 
-export default function Home() {
-  const [posts, setPosts] = useState([])
+export default function Home({ postsFromDB }) {
+  const [posts, setPosts] = useState(postsFromDB)
 
-  function addPost(post) {
-    setPosts([...posts, post])
+  async function addPost(post) {
+    const JSONdata = JSON.stringify(post)
+    const endpoint = '/api/posts'
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSONdata,
+    }
+
+    try {
+      const response = await fetch(endpoint, options)
+      const result = await response.json()
+      setPosts([...posts, result])
+    } catch (error) {
+      // TO DO: Handle errors
+    }
   }
 
-  function deletePost(index) {
-    setPosts(posts.filter((post) => posts.indexOf(post) !== index))
+  async function deletePost(_id) {
+    const endpoint = `/api/posts/${_id}`
+    const options = {
+      method: 'DELETE',
+    }
+
+    try {
+      await fetch(endpoint, options)
+      setPosts(posts.filter((post) => post._id !== _id))
+    } catch (error) {
+      // TO DO: Handle errors
+    }
   }
 
   return (
@@ -36,4 +63,20 @@ export default function Home() {
       </MainContainer>
     </>
   )
+}
+
+export async function getServerSideProps(context) {
+  try {
+    const client = await clientPromise
+    const db = client.db('postfellow')
+    const collection = db.collection('posts')
+
+    const postsFromDB = await collection.find({}).toArray()
+
+    return {
+      props: { postsFromDB: JSON.parse(JSON.stringify(postsFromDB)) },
+    }
+  } catch (error) {
+    //TO DO: Handle errors
+  }
 }
