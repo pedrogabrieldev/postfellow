@@ -2,6 +2,31 @@ import styled, { useTheme } from 'styled-components'
 import { XCircle } from 'phosphor-react'
 import { Avatar } from '.'
 
+export const Post = (props) => {
+  const theme = useTheme()
+
+  function deletePost() {
+    props.deletePost(props._id)
+  }
+
+  return (
+    <PostContainer>
+      <AvatarDiv>
+        <Avatar avatar={props.avatar} />
+      </AvatarDiv>
+
+      <MessageDiv>
+        <StyledParagraph>{props.message}</StyledParagraph>
+        <StyledSentBy>Enviado por</StyledSentBy>
+        <StyledAuthor>{props.author}</StyledAuthor>
+      </MessageDiv>
+      <DeleteButton onClick={deletePost}>
+        <XCircle size={24} color={theme.colors.red} weight="light" />
+      </DeleteButton>
+    </PostContainer>
+  )
+}
+
 const PostContainer = styled.div`
   display: flex;
   gap: 32px;
@@ -54,28 +79,3 @@ const DeleteButton = styled.button`
   background: none;
   cursor: pointer;
 `
-
-export const Post = (props) => {
-  const theme = useTheme()
-
-  function deletePost() {
-    props.deletePost(props._id)
-  }
-
-  return (
-    <PostContainer>
-      <AvatarDiv>
-        <Avatar avatar={props.avatar} />
-      </AvatarDiv>
-
-      <MessageDiv>
-        <StyledParagraph>{props.message}</StyledParagraph>
-        <StyledSentBy>Enviado por</StyledSentBy>
-        <StyledAuthor>{props.author}</StyledAuthor>
-      </MessageDiv>
-      <DeleteButton onClick={deletePost}>
-        <XCircle size={24} color={theme.colors.red} weight="light" />
-      </DeleteButton>
-    </PostContainer>
-  )
-}

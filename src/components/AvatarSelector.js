@@ -1,6 +1,17 @@
 import styled, { useTheme } from 'styled-components'
 import { ImageSquare } from 'phosphor-react'
 
+export const AvatarSelector = (props) => {
+  const theme = useTheme()
+
+  return (
+    <StyledLabel>
+      <StyledFileInput onChange={props.changeAvatar} />
+      <ImageSquare size={24} color={theme.colors.white} weight="light" />
+    </StyledLabel>
+  )
+}
+
 const StyledLabel = styled.label.attrs({
   htmlFor: 'fileInput',
 })`
@@ -21,14 +32,3 @@ const StyledFileInput = styled.input.attrs({
 })`
   display: none;
 `
-
-export const AvatarSelector = (props) => {
-  const theme = useTheme()
-
-  return (
-    <StyledLabel>
-      <StyledFileInput onChange={props.changeAvatar} />
-      <ImageSquare size={24} color={theme.colors.white} weight="light" />
-    </StyledLabel>
-  )
-}

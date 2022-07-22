@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+export const Header = ({ children }) => {
+  return <StyledHeader>{children}</StyledHeader>
+}
+
 const StyledHeader = styled.header`
   position: fixed;
   top: 0;
@@ -15,7 +19,3 @@ const StyledHeader = styled.header`
   align-items: center;
   z-index: 1;
 `
-
-export const Header = ({ children }) => {
-  return <StyledHeader>{children}</StyledHeader>
-}

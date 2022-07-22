@@ -2,11 +2,6 @@ import Image from 'next/image'
 import styled from 'styled-components'
 import DefaultUser from '../../public/default-user.png'
 
-const StyledDiv = styled.div`
-  border-radius: 100%;
-  overflow: hidden;
-`
-
 export const Avatar = (props) => {
   return (
     <StyledDiv>
@@ -21,3 +16,8 @@ export const Avatar = (props) => {
     </StyledDiv>
   )
 }
+
+const StyledDiv = styled.div`
+  border-radius: 100%;
+  overflow: hidden;
+`

@@ -1,19 +1,6 @@
 import styled from 'styled-components'
 import { Post } from './'
 
-const FeedContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`
-
-const StyledSpan = styled.span`
-  margin-top: 56px;
-  margin-bottom: 8px;
-  color: ${(props) => props.theme.colors.gray2};
-  font-size: 14px;
-`
-
 export const Feed = (props) => {
   const postsList = props.posts.map((post, index) => {
     return (
@@ -38,3 +25,16 @@ export const Feed = (props) => {
     </>
   )
 }
+
+const FeedContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`
+
+const StyledSpan = styled.span`
+  margin-top: 56px;
+  margin-bottom: 8px;
+  color: ${(props) => props.theme.colors.gray2};
+  font-size: 14px;
+`

@@ -3,6 +3,75 @@ import styled, { useTheme } from 'styled-components'
 import { Avatar, AvatarSelector, Spinner } from './'
 import { Trash } from 'phosphor-react'
 
+export const NewPostForm = (props) => {
+  const theme = useTheme()
+
+  const [avatar, setAvatar] = useState('')
+  const [author, setAuthor] = useState('')
+  const [message, setMessage] = useState('')
+
+  function changeAvatar(event) {
+    if (event.target.files) {
+      setAvatar(URL.createObjectURL(event.target.files[0]))
+    }
+  }
+
+  function deleteAvatar() {
+    setAvatar('')
+  }
+
+  function changeAuthor(event) {
+    setAuthor(event.target.value)
+  }
+
+  function changeMessage(event) {
+    setMessage(event.target.value)
+  }
+
+  function addPost(event) {
+    event.preventDefault()
+
+    if (!author || !message) {
+      return
+    }
+
+    props.addPost({ avatar, author, message })
+    handleDiscardButton()
+  }
+
+  function handleDiscardButton() {
+    setAuthor('')
+    setMessage('')
+  }
+
+  return (
+    <FormContainer onSubmit={addPost}>
+      {avatar ? (
+        <Container>
+          <AvatarDiv>
+            <Avatar avatar={avatar} />
+          </AvatarDiv>
+          <TrashButton onClick={deleteAvatar}>
+            <Trash size={24} color={theme.colors.red} weight="light" />
+          </TrashButton>
+        </Container>
+      ) : (
+        <AvatarSelector changeAvatar={changeAvatar} />
+      )}
+
+      <TextInput value={author} onChange={changeAuthor} />
+      <TextArea value={message} onChange={changeMessage} />
+
+      <ButtonsContainer>
+        <ButtonDiscard onClick={handleDiscardButton}>Descartar</ButtonDiscard>
+        <ButtonPublish disabled={props.isPublishing}>
+          {props.isPublishing ? <Spinner /> : 'Publicar'}
+        </ButtonPublish>
+      </ButtonsContainer>
+    </FormContainer>
+  )
+}
+
 const FormContainer = styled.form`
   padding: 24px;
   background-color: ${(props) => props.theme.colors.gray8};
@@ -147,72 +216,3 @@ const ButtonPublish = styled.button.attrs({
     cursor: default;
   }
 `
-
-export const NewPostForm = (props) => {
-  const theme = useTheme()
-
-  const [avatar, setAvatar] = useState('')
-  const [author, setAuthor] = useState('')
-  const [message, setMessage] = useState('')
-
-  function changeAvatar(event) {
-    if (event.target.files) {
-      setAvatar(URL.createObjectURL(event.target.files[0]))
-    }
-  }
-
-  function deleteAvatar() {
-    setAvatar('')
-  }
-
-  function changeAuthor(event) {
-    setAuthor(event.target.value)
-  }
-
-  function changeMessage(event) {
-    setMessage(event.target.value)
-  }
-
-  function addPost(event) {
-    event.preventDefault()
-
-    if (!author || !message) {
-      return
-    }
-
-    props.addPost({ avatar, author, message })
-    handleDiscardButton()
-  }
-
-  function handleDiscardButton() {
-    setAuthor('')
-    setMessage('')
-  }
-
-  return (
-    <FormContainer onSubmit={addPost}>
-      {avatar ? (
-        <Container>
-          <AvatarDiv>
-            <Avatar avatar={avatar} />
-          </AvatarDiv>
-          <TrashButton onClick={deleteAvatar}>
-            <Trash size={24} color={theme.colors.red} weight="light" />
-          </TrashButton>
-        </Container>
-      ) : (
-        <AvatarSelector changeAvatar={changeAvatar} />
-      )}
-
-      <TextInput value={author} onChange={changeAuthor} />
-      <TextArea value={message} onChange={changeMessage} />
-
-      <ButtonsContainer>
-        <ButtonDiscard onClick={handleDiscardButton}>Descartar</ButtonDiscard>
-        <ButtonPublish disabled={props.isPublishing}>
-          {props.isPublishing ? <Spinner /> : 'Publicar'}
-        </ButtonPublish>
-      </ButtonsContainer>
-    </FormContainer>
-  )
-}

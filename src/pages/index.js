@@ -4,14 +4,6 @@ import clientPromise from '../lib/mongodb'
 import styled from 'styled-components'
 import { Header, NewPostForm, Feed } from '../components'
 
-const MainContainer = styled.main`
-  margin: ${(props) => props.theme.sizes.headerHeight} auto 0 auto;
-  padding: 40px 8px 170px 8px;
-  max-width: 516px;
-  display: flex;
-  flex-direction: column;
-`
-
 export default function Home({ postsFromDB }) {
   const [posts, setPosts] = useState(postsFromDB)
   const [isPublishing, setIsPublishing] = useState(false)
@@ -84,3 +76,11 @@ export async function getServerSideProps(context) {
     //TO DO: Handle errors
   }
 }
+
+const MainContainer = styled.main`
+  margin: ${(props) => props.theme.sizes.headerHeight} auto 0 auto;
+  padding: 40px 8px 170px 8px;
+  max-width: 516px;
+  display: flex;
+  flex-direction: column;
+`
