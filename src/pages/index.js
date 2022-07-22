@@ -14,6 +14,7 @@ const MainContainer = styled.main`
 
 export default function Home({ postsFromDB }) {
   const [posts, setPosts] = useState(postsFromDB)
+  const [isPublishing, setIsPublishing] = useState(false)
 
   async function addPost(post) {
     const JSONdata = JSON.stringify(post)
@@ -27,10 +28,13 @@ export default function Home({ postsFromDB }) {
     }
 
     try {
+      setIsPublishing(true)
       const response = await fetch(endpoint, options)
       const result = await response.json()
       setPosts([...posts, result])
+      setIsPublishing(false)
     } catch (error) {
+      setIsPublishing(false)
       // TO DO: Handle errors
     }
   }
@@ -58,7 +62,7 @@ export default function Home({ postsFromDB }) {
       <Header>postfellow</Header>
 
       <MainContainer>
-        <NewPostForm addPost={addPost} />
+        <NewPostForm addPost={addPost} isPublishing={isPublishing} />
         <Feed posts={posts} deletePost={deletePost} />
       </MainContainer>
     </>

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styled, { useTheme } from 'styled-components'
-import { Avatar, AvatarSelector } from './'
+import { Avatar, AvatarSelector, Spinner } from './'
 import { Trash } from 'phosphor-react'
 
 const FormContainer = styled.form`
@@ -121,8 +121,14 @@ const ButtonDiscard = styled.button.attrs({
   }
 `
 
-const ButtonPublish = styled.button`
-  padding: 12px 24px;
+const ButtonPublish = styled.button.attrs({
+  type: 'submit',
+})`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 99px;
+  height: 40px;
   border: none;
   border-radius: 8px;
   background-color: ${(props) => props.theme.colors.green1};
@@ -134,6 +140,11 @@ const ButtonPublish = styled.button`
 
   &:hover {
     background-color: ${(props) => props.theme.colors.green2};
+  }
+
+  &:disabled {
+    background-color: ${(props) => props.theme.colors.gray3};
+    cursor: default;
   }
 `
 
@@ -198,7 +209,9 @@ export const NewPostForm = (props) => {
 
       <ButtonsContainer>
         <ButtonDiscard onClick={handleDiscardButton}>Descartar</ButtonDiscard>
-        <ButtonPublish type="submit">Publicar</ButtonPublish>
+        <ButtonPublish disabled={props.isPublishing}>
+          {props.isPublishing ? <Spinner /> : 'Publicar'}
+        </ButtonPublish>
       </ButtonsContainer>
     </FormContainer>
   )

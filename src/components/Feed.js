@@ -32,7 +32,7 @@ export const Feed = (props) => {
   return (
     <>
       <StyledSpan>
-        {props.posts.length ? 'Feed' : 'Nenhuma postagem'}
+        {props.posts.length ? 'Feed' : 'Nenhuma publicação'}
       </StyledSpan>
       <FeedContainer>{[...postsList].reverse()}</FeedContainer>
     </>
