@@ -1,16 +1,11 @@
-import { ObjectId } from 'mongodb'
-import clientPromise from '../../../lib/mongodb'
+import { postsDAO } from '../../../dao/postsDAO'
 
-export default async (req, res) => {
+export default async function handler(req, res) {
   const { postId } = req.query
-
-  const client = await clientPromise
-  const db = client.db('postfellow')
-  const collection = db.collection('posts')
 
   if (req.method === 'DELETE') {
     try {
-      await collection.deleteOne({ _id: ObjectId(postId) })
+      await postsDAO.deletePostById(postId)
       return res.status(200).json({})
     } catch (error) {
       // TO DO: Handle errors

@@ -1,15 +1,11 @@
-import clientPromise from '../../../lib/mongodb'
+import { postsDAO } from '../../../dao/postsDAO'
 
-export default async (req, res) => {
-  const data = req.body
-
-  const client = await clientPromise
-  const db = client.db('postfellow')
-  const collection = db.collection('posts')
+export default async function handler(req, res) {
+  const post = req.body
 
   try {
-    await collection.insertOne(data)
-    return res.status(201).json(data)
+    await postsDAO.addPost(post)
+    return res.status(201).json(post)
   } catch (error) {
     // TO DO: Handle errors
   }

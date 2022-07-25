@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Head from 'next/head'
-import clientPromise from '../lib/mongodb'
+import { postsDAO } from '../dao/postsDAO'
 import styled from 'styled-components'
 import { Header, NewPostForm, Feed } from '../components'
 
@@ -61,13 +61,9 @@ export default function Home({ postsFromDB }) {
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   try {
-    const client = await clientPromise
-    const db = client.db('postfellow')
-    const collection = db.collection('posts')
-
-    const postsFromDB = await collection.find({}).toArray()
+    const postsFromDB = await postsDAO.getAllPosts()
 
     return {
       props: { postsFromDB: JSON.parse(JSON.stringify(postsFromDB)) },
